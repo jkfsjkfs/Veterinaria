@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31910.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Veterinaria", "Veterinaria\Veterinaria.pyproj", "{25BE565F-7F62-434D-9E72-DF2C1DAA594A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25BE565F-7F62-434D-9E72-DF2C1DAA594A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25BE565F-7F62-434D-9E72-DF2C1DAA594A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBAE0F9B-20BB-4063-9A01-8D6A3CA6AEBF}
+	EndGlobalSection
+EndGlobal
