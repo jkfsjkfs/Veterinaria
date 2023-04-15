@@ -14,21 +14,21 @@ class Mascota(ABC):
 
 
 class Perro(Mascota):
-    def __init__(self, Id, nombre, cedula_cliente, edad, id, raza, caracteristicas, peso):
+    def __init__(self, Id, nombre, cedula_cliente, edad, raza, caracteristicas, peso):
         especie = Especie.Perro
         super().__init__(Id, nombre, cedula_cliente, edad, raza, caracteristicas, peso)
 
 class Gato(Mascota):
-    def __init__(self, Id, nombre, cedula_cliente, edad, id, raza, caracteristicas, peso):
+    def __init__(self, Id, nombre, cedula_cliente, edad, raza, caracteristicas, peso):
         especie = Especie.Gato
         super().__init__(Id, nombre, cedula_cliente, edad, raza, caracteristicas, peso)
 
 class Pez(Mascota):
-    def __init__(self, Id, nombre, cedula_cliente, edad, id, raza, caracteristicas, peso):
+    def __init__(self, Id, nombre, cedula_cliente, edad, raza, caracteristicas, peso):
         especie = Especie.Pez
         super().__init__(Id, nombre, cedula_cliente, edad, raza, caracteristicas, peso)
 
 class Ave(Mascota):
-    def __init__(self, Id,  nombre, cedula_cliente, edad, id, raza, caracteristicas, peso):
+    def __init__(self, Id,  nombre, cedula_cliente, edad, raza, caracteristicas, peso):
         especie = Especie.Ave
         super().__init__(Id, nombre, cedula_cliente, edad, raza, caracteristicas, peso)
