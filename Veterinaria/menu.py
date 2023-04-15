@@ -2,9 +2,12 @@
 from mascotas import Perro, Gato, Pez, Ave
 from personas import Cliente, Veterinario
 from venta import Venta
-from historia import HistoriaClinica
 
+from orden import Orden
+from historia import HistoriaClinica
 from veterinaria import Veterinaria
+
+from datetime import datetime
 
 veterinaria = Veterinaria()
 
@@ -70,11 +73,11 @@ def agregar_mascota(_veterinaria):
 
 
         _veterinaria.mascotas.append(nueva_mascota)
-        print("La mascota se agregó correctamente.")
+        print("*********************La mascota se agregó correctamente.*********************")
     except ValueError as ve:
-        print("Error:", ve)
+        print("*********Error:", ve)
     except Exception as e:
-        print("Ocurrió un error:", e)
+        print("*********Ocurrió un error:", e)
 
     
 def agregar_cliente(_veterinaria):
@@ -107,7 +110,7 @@ def agregar_veterinario(_veterinaria):
                 raise Exception("Ya existe un veterinario con la misma Identificación.")
 
         nombre = input("Ingrese el nombre del veterinario: ")
-        edad = int(input("Ingrese edad del cliente (en años): "))
+        edad = int(input("Ingrese edad del veterinario (en años): "))
 
         usuario = input("Asigne un usuario: ") 
         password = input("Asigne un password: ") 
@@ -130,39 +133,60 @@ def agregar_historia_clinica(_veterinaria):
         
         print("Seleccione la mascota a la que desea agregar la historia clínica:")
         for i, mascota in enumerate(_veterinaria.mascotas):
-            print(f"{i + 1}. {mascota.nombre}")
+            print(f"{i + 1}. {mascota.s_nombre}")
         
         opcion = int(input("Opción: "))
-        mascota_seleccionada = mascotas[opcion - 1]
+        mascota_seleccionada =_veterinaria.mascotas[opcion - 1]
 
-        print(f"Ingresando historia clínica para {mascota_seleccionada.nombre}:")
+        print(f"Ingresando historia clínica para {mascota_seleccionada.s_nombre}:")
 
-        fecha = input("Ingrese la fecha de la consulta (dd/mm/aaaa): ")
-        medico = input("Ingrese el nombre del médico: ")
+        cedula_cliente = mascota_seleccionada.n_cedula_Cliente
+        id_mascota = mascota_seleccionada.Id
+
+        fecha = datetime.strptime(input("Ingrese la fecha de la consulta (AAAA-MM-DD): "), '%Y-%m-%d').date()
+        cedula_veterinario = int(input("Ingrese la Identificación del Medico veterinario: "))
+        
+        medico = ""
+        for vet in _veterinaria.veterinarios:
+            if vet.n_cedula == cedula_veterinario:
+                medico = vet.s_nombre
+
+        if medico == "":
+           raise Exception("el medico veterinario NO está registrado.")
+
+
         motivo_consulta = input("Ingrese el motivo de la consulta: ")
         sintomatologia = input("Ingrese la sintomatología: ")
         diagnostico = input("Ingrese el diagnóstico: ")
         procedimiento = input("Ingrese el procedimiento realizado: ")
         medicamento = input("Ingrese el medicamento recetado: ")
         dosis_medicamento = input("Ingrese la dosis del medicamento recetado: ")
-        id_orden = int(input("Ingrese el id de la orden a la que pertenece la consulta: "))
         historial_vacunacion = input("Ingrese el historial de vacunación: ")
         alergias = input("Ingrese las alergias del paciente: ")
         detalle_procedimiento = input("Ingrese el detalle del procedimiento realizado: ")
         
+        
+
+        id_orden = 0
+        agregar_ordenes = input("¿Desea agregar una orden? (s/n): ")
+        if agregar_ordenes.lower() == "s":
+            id_orden = _veterinaria.generaId("ordenes")
+            orden = Orden(id_orden, id_mascota, cedula_cliente, cedula_veterinario, medicamento, dosis_medicamento, fecha)
+            ordenes.append(orden)
+
+
         historia_clinica = HistoriaClinica(id_mascota, fecha, medico, motivo_consulta, sintomatologia, diagnostico, procedimiento, medicamento, dosis_medicamento, id_orden, historial_vacunacion, alergias, detalle_procedimiento)
-        _veterinaria.historias_clinicas.append(historia_clinica)
 
-
-        print("Historia clínica agregada exitosamente!")
+        _veterinaria.historias_clinicas.agregar_historia_clinica(historia_clinica)
+        
+        print("*********************Historia clínica agregada exitosamente!*********************")
         
     except ValueError:
-        print("Error: La opción ingresada debe ser un número entero")
+        print("**********Error: La opción ingresada debe ser un número entero")
     except IndexError:
-        print("Error: Opción inválida")
+        print("**********Error: Opción inválida")
     except Exception as e:
         print(str(e))
-
 
 
 

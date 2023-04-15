@@ -1,11 +1,11 @@
-
+from historia import HistoriaClinica
 
 class Veterinaria:
     mascotas = []
     clientes = []
     veterinarios = []
     ventas = []
-    historias_clinicas = []
+    historias_clinicas = HistoriaClinica()
     ordenes = []
 
     
