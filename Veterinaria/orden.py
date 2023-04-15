@@ -1,8 +1,5 @@
 
 
-
-
-
 class Orden:
     def __init__(self, id_orden, id_mascota, cedula_cliente, cedula_veterinario, nombre_medicamento, dosis, fecha_generacion):
         self.id_orden = id_orden

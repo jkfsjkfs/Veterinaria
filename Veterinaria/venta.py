@@ -8,7 +8,7 @@ class Venta:
         self.id_Orden = id_orden
         self.s_nombre_producto = nombre_producto
         self.n_valor = valor
-        self.can_cantidadntidad = cantidad
+        self.n_cantidadntidad = cantidad
         self.d_fecha = fecha
         self.Id = Id
 
