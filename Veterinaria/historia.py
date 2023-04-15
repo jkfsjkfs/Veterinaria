@@ -4,7 +4,7 @@ class HistoriaClinica:
     def __init__(self):
         self.registros = {}
 
-    def agregar_registro(self, id_mascota, fecha, medico, motivo_consulta, sintomatologia, diagnostico, procedimiento, medicamento, dosis_medicamento, id_orden, historial_vacunacion, alergias, detalle_procedimiento):
+    def agregar_registro(self,  id_mascota, fecha, medico, motivo_consulta, sintomatologia, diagnostico, procedimiento, medicamento, dosis_medicamento, id_orden, historial_vacunacion, alergias, detalle_procedimiento):
         if id_mascota not in self.registros:
             self.registros[id_mascota] = {}
 

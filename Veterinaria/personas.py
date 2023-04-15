@@ -1,6 +1,7 @@
 
 from enumerados import Rol
-from abc import ABC
+from abc import ABC, abstractmethod
+
 
 class Persona(ABC):
     def __init__(self, cedula, nombre, edad):
@@ -9,21 +10,21 @@ class Persona(ABC):
         self.n_edad = edad
         
 
-class Usuario(ABC, Persona):
-    def __init__(self, cedula, nombre, edad, rol, usuario, contraseña):
+class Usuario(Persona, ABC):
+    def __init__(self, cedula, nombre, edad, usuario, password):
         super().__init__(cedula, nombre, edad)
         self.s_usuario = usuario
-        self.s_contraseña = contraseña
+        self.s_password = password
 
 
 class Administrador(Usuario):
-    def __init__(self, cedula, nombre, edad, rol, usuario, contraseña):
-        super().__init__(cedula, nombre, edad, usuario, contraseña)
+    def __init__(self, cedula, nombre, edad, rol, usuario, password):
+        super().__init__(cedula, nombre, edad, usuario, password)
         self.e_rol = Rol.Admin
 
 class Veterinario(Usuario):
-    def __init__(self, cedula, nombre, edad, usuario, contraseña):
-        super().__init__(cedula, nombre, edad, usuario, contraseña)
+    def __init__(self, cedula, nombre, edad, usuario, password):
+        super().__init__(cedula, nombre, edad, usuario, password)
         self.e_rol = Rol.Veterinario
 
 class Cliente(Persona):
@@ -33,7 +34,7 @@ class Cliente(Persona):
 
 
 class Vendedor(Usuario):
-    def __init__(self, cedula, nombre, edad, usuario, contraseña):
-        super().__init__(cedula, nombre, edad, usuario, contraseña)
+    def __init__(self, cedula, nombre, edad, usuario, password):
+        super().__init__(cedula, nombre, edad, usuario, password)
         self.e_rol = Rol.Vendedor
 

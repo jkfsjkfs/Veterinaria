@@ -1,7 +1,7 @@
 
 
 class Venta:
-    def __init__(self, id_mascota, id_cliente, id_veterinario, id_orden, nombre_producto, valor, cantidad, fecha):
+    def __init__(self, Id, id_mascota, id_cliente, id_veterinario, id_orden, nombre_producto, valor, cantidad, fecha):
         self.id_Mascota = id_mascota
         self.n_cedula_Cliente = id_cliente
         self.n_cedula_Veterinario = id_veterinario
@@ -10,6 +10,6 @@ class Venta:
         self.n_valor = valor
         self.can_cantidadntidad = cantidad
         self.d_fecha = fecha
-        self.Id = None # se asignará después
+        self.Id = Id
 
     

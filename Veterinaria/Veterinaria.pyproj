@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>25be565f-7f62-434d-9e72-df2c1daa594a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Veterinaria.py</StartupFile>
+    <StartupFile>menu.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -33,6 +33,9 @@
     <Compile Include="mascotas.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="menu.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="orden.py">
       <SubType>Code</SubType>
     </Compile>
@@ -42,7 +45,9 @@
     <Compile Include="venta.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Veterinaria.py" />
+    <Compile Include="veterinaria.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
